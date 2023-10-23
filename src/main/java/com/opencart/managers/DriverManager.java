@@ -2,6 +2,7 @@ package com.opencart.managers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,7 +17,9 @@ public class DriverManager {
 
         switch (webDriverType.toUpperCase()) {
             case "CHROME":
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("ignore-certificate-errors");
+                driver = new ChromeDriver(options);
                 System.out.println("The Chrome driver is initiated.");
                 break;
             case "FIREFOX":
