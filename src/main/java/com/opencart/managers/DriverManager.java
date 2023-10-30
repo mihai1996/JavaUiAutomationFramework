@@ -50,6 +50,7 @@ public class DriverManager {
 
         driver.close();
         driver.quit();
+        instance = null;
         driver = null;
     }
 }
